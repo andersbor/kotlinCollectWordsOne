@@ -1,5 +1,6 @@
 package dk.easj.anbo.collectwordsone
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
+
+        //requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        // requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
 
         binding.buttonSave.setOnClickListener {
             val word = binding.editTextWord.text.toString().trim()
