@@ -34,7 +34,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonShow.setOnClickListener {
-            binding.textViewMessage.text = words.toString()
+            if (words.size==0) {
+                binding.textViewMessage.text = "empty"
+            }else {
+                binding.textViewMessage.text = words.toString()
+            }
         }
     }
 }
