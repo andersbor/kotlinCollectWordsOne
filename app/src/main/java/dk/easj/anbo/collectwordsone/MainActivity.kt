@@ -1,14 +1,13 @@
 package dk.easj.anbo.collectwordsone
 
-import android.content.pm.ActivityInfo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import dk.easj.anbo.collectwordsone.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val words = ArrayList<String>()
+    private var words = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +33,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonShow.setOnClickListener {
-            if (words.size==0) {
+            if (words.size == 0) {
                 binding.textViewMessage.text = "empty"
-            }else {
+            } else {
                 binding.textViewMessage.text = words.toString()
             }
         }
     }
+
 }

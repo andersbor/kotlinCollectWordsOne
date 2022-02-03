@@ -22,8 +22,8 @@ import org.junit.Rule
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @get:Rule
-    var activityRule: ActivityScenarioRule<MainActivity>
-            = ActivityScenarioRule(MainActivity::class.java)
+    var activityRule: ActivityScenarioRule<MainActivity> =
+        ActivityScenarioRule(MainActivity::class.java)
 
     @Test
     fun useAppContext() {
@@ -31,21 +31,21 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("dk.easj.anbo.collectwordsone", appContext.packageName)
 
-        onView(withText("Type a word")).check(matches(isDisplayed()));
+        onView(withText("Type a word")).check(matches(isDisplayed()))
 
-        onView(withId(R.id.editText_word)).perform(typeText("Anders"));
-        onView(withId(R.id.button_save)).perform(click());
-        onView(withId(R.id.button_show)).perform(click());
-        onView(withId(R.id.textView_message)).check(matches(withText(("[Anders]"))));
+        onView(withId(R.id.editText_word)).perform(typeText("Anders"))
+        onView(withId(R.id.button_save)).perform(click())
+        onView(withId(R.id.button_show)).perform(click())
+        onView(withId(R.id.textView_message)).check(matches(withText(("[Anders]"))))
 
         onView(withId(R.id.editText_word)).perform(clearText())
-        onView(withId(R.id.editText_word)).perform(typeText("Peter"));
-        onView(withId(R.id.button_save)).perform(click());
-        onView(withId(R.id.button_show)).perform(click());
-        onView(withId(R.id.textView_message)).check(matches(withText(("[Anders, Peter]"))));
+        onView(withId(R.id.editText_word)).perform(typeText("Peter"))
+        onView(withId(R.id.button_save)).perform(click())
+        onView(withId(R.id.button_show)).perform(click())
+        onView(withId(R.id.textView_message)).check(matches(withText(("[Anders, Peter]"))))
 
-        onView(withId(R.id.button_clear)).perform(click());
-        onView(withId(R.id.button_show)).perform(click());
-        onView(withId(R.id.textView_message)).check(matches(withText("empty")));
+        onView(withId(R.id.button_clear)).perform(click())
+        onView(withId(R.id.button_show)).perform(click())
+        onView(withId(R.id.textView_message)).check(matches(withText("empty")))
     }
 }
