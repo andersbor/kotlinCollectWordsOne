@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonClear.setOnClickListener {
+            
             words.clear()
         }
 
