@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val view: View = binding.root
         setContentView(view)
 
-        //requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        // requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         // requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
 
         binding.buttonSave.setOnClickListener {
@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonClear.setOnClickListener {
-            
             words.clear()
         }
 

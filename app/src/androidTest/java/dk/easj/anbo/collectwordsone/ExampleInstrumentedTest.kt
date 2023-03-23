@@ -22,8 +22,17 @@ import org.junit.Rule
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @get:Rule
-    var activityRule: ActivityScenarioRule<MainActivity> =
+    val activityRule: ActivityScenarioRule<MainActivity> =
         ActivityScenarioRule(MainActivity::class.java)
+
+    //@Rule
+    //@JvmField
+    // https://devdeejay.medium.com/testing-in-android-for-beginners-6ca8727edb5d
+    //val rule = ActivityTestRule(MainActivity::class.java)
+
+    //@get:Rule
+    //val addTraderActivity: IntentsTestRule<MainActivity> =
+    //    IntentsTestRule(MainActivity::class.java)
 
     @Test
     fun useAppContext() {
@@ -34,12 +43,14 @@ class ExampleInstrumentedTest {
         onView(withText("Type a word")).check(matches(isDisplayed()))
 
         onView(withId(R.id.editText_word)).perform(typeText("Anders"))
+        closeSoftKeyboard()
         onView(withId(R.id.button_save)).perform(click())
         onView(withId(R.id.button_show)).perform(click())
         onView(withId(R.id.textView_message)).check(matches(withText(("[Anders]"))))
 
         onView(withId(R.id.editText_word)).perform(clearText())
         onView(withId(R.id.editText_word)).perform(typeText("Peter"))
+        closeSoftKeyboard()
         onView(withId(R.id.button_save)).perform(click())
         onView(withId(R.id.button_show)).perform(click())
         onView(withId(R.id.textView_message)).check(matches(withText(("[Anders, Peter]"))))
